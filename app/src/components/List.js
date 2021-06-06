@@ -1,18 +1,19 @@
 import Video from './Video';
 import Article from './Article';
-import { nanoid } from 'nanoid'
+import {HighlightBlock} from './HighlightBlock';
+
 
 export default function List(props) {
     return props.list.map(item => {
         switch (item.type) {
             case 'video':
                 return (
-                    <Video {...item} key={nanoid()} />
+                    HighlightBlock(Video)({...item})
                 );
 
             case 'article':
                 return (
-                    <Article {...item} key={nanoid()} />
+                    HighlightBlock(Article)({...item})
                 );
         }
     });
