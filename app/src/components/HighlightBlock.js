@@ -9,13 +9,15 @@ export const HighlightBlock = (Component) => (props) => {
               <Component {...props} />
             </Popular>
         );
-    }
-
-    if (props.views < 100) {
+    } else if (props.views < 100) {
         return(
             <New>
                 <Component {...props} />
             </New>
         );
-    }   
+    } else {
+        return (
+            <Component {...props} />
+        )
+    }  
 };
